@@ -45,9 +45,9 @@ int main(int argc, char **argv) {
     
     if(tam1 == tam2){
         printf("tamaño correcto\n");
-        //crear(&result, tam1);
+        crear(&result, tam1);
         suma(&result,m1,m2);
-        //imprimir(&result);
+        imprimir(&result);
     }
     else{ 
         printf("las matrices tienen que ser del mismo tamaño");

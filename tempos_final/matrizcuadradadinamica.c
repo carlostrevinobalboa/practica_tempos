@@ -53,7 +53,7 @@ short tamano(matrizP *m1) {
 TELEMENTO recuperar(matrizP *m1, short fila, short columna) {
     TELEMENTO valor = 0;
     //declarar aqui las variables fila y columna
-
+    
     if (fila <= (*m1)->tam && columna <= (*m1)->tam && fila > 0 && columna > 0) {//comparar si es mayor
         //printf("Posicion (%d,%d) equivale a posicion lineal %d\n",fila, columna, (fila-1) * (*m1)->tam + (columna -1));
         valor = *((*m1)->datos + (fila - 1) * (*m1)->tam + (columna - 1));
@@ -74,18 +74,22 @@ void inicializar(matrizP *matrix) {
 
 void suma(matrizP* result, matrizP m1, matrizP m2) {
 
-    short i, j;
+    long i, j;
     TELEMENTO valorm1=0, valorm2=0, valorresult=0;
-    for (i = 1; i < m1->tam; i++) {
-        for (j = 1; i < m1->tam; j++) {
-            valorm1 = recuperar(&m1, i, j);
-            printf("valor recuperado %f\n",valorm1);
-            valorm2 = recuperar(&m2, i, j);
-            printf("valor recuperado %f\n",valorm2);
-            valorresult = valorm1 + valorm2;
-            printf("valor recuperado %f\n",valorresult);
-            printf("eroor en asignar\n");
-            asignar(*result,i,j,valorresult);
+    
+     for (i = 0; i < m1->tam; i++) {
+            for (j = 0; j < m2->tam; j++) {
+                valorm1 = recuperar(&m1, i + 1, j + 1);
+                printf("valor m1 %f\n",valorm1);
+
+                valorm2 = recuperar(&m2, i + 1, j + 1);
+                printf("valor m2 %f\n",valorm2);
+                        
+                valorresult = valorm1 + valorm2;
+                printf("valor result %f\n",valorresult);
+                
+                asignar(result, i+1, j+1, valorresult);
+            }
         }
-    }
+    printf("terminar asignacion\n");
 }
