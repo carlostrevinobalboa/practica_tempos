@@ -30,7 +30,7 @@ void asignar(matrizP *m1, short fila, short columna, TELEMENTO valor) {
     *((*m1)->datos + (fila - 1)*(*m1)->tam + columna - 1) = valor;
 }
 
-
+//
 
 void liberar(matrizP *m1) {
     if (*m1 != 0) {
@@ -65,11 +65,10 @@ TELEMENTO recuperar(matrizP *m1, short fila, short columna) {
 }
 
 void inicializar(matrizP *matrix) {
-    float element = 10.0 * (TELEMENTO) rand() / RAND_MAX;
-    int i=0,j=0;
-    for (i = 0; i <= tamano(*matrix); i++) {
-        for (j = 0; j <= tamano(*matrix); j++) {
-            asignar(matrix, i, j,element );
+    int i,j;
+    for (i = 0;i <= tamano(matrix); i++) {
+        for (j = 0;j <= tamano(matrix); j++) {
+            asignar(matrix, i, j, 10.0 * (TELEMENTO) rand() / RAND_MAX);
         }
     }
 }
