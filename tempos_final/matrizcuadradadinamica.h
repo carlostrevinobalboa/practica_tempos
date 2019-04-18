@@ -18,5 +18,6 @@ short tamano(matrizP m1);
 
 TELEMENTO recuperar(matrizP m1, short fila, short columna);
 
+void suma(matrizP* result, matrizP m1, matrizP m2);
 
 #endif	// MATRIZCUADRADADINAMICA_H

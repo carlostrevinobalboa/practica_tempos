@@ -41,7 +41,6 @@ void liberar(matrizP *m1) {
     }
 }
 
-
 short tamano(matrizP *m1) {
     short t = 0;
     if (m1 != NULL) {
@@ -65,10 +64,28 @@ TELEMENTO recuperar(matrizP *m1, short fila, short columna) {
 }
 
 void inicializar(matrizP *matrix) {
-    int i,j;
-    for (i = 0;i <= tamano(matrix); i++) {
-        for (j = 0;j <= tamano(matrix); j++) {
+    int i, j;
+    for (i = 0; i <= tamano(matrix); i++) {
+        for (j = 0; j <= tamano(matrix); j++) {
             asignar(matrix, i, j, 10.0 * (TELEMENTO) rand() / RAND_MAX);
+        }
+    }
+}
+
+void suma(matrizP* result, matrizP m1, matrizP m2) {
+
+    short i, j;
+    TELEMENTO valorm1=0, valorm2=0, valorresult=0;
+    for (i = 1; i < m1->tam; i++) {
+        for (j = 1; i < m1->tam; j++) {
+            valorm1 = recuperar(&m1, i, j);
+            printf("valor recuperado %f\n",valorm1);
+            valorm2 = recuperar(&m2, i, j);
+            printf("valor recuperado %f\n",valorm2);
+            valorresult = valorm1 + valorm2;
+            printf("valor recuperado %f\n",valorresult);
+            printf("eroor en asignar\n");
+            asignar(*result,i,j,valorresult);
         }
     }
 }

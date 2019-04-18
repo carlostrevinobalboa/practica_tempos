@@ -21,14 +21,10 @@ void imprimir(matrizP *m1) {
     }
 }
 
-void suma(matrizP* result, matrizP m1, matrizP m2){
-
-}
-
 int main(int argc, char **argv) {
 
     clock_t inicio = -1, fin = -1;
-    matrizP m1,m2,mresultado; /*declaramos la matriz*/
+    matrizP m1,m2,result; /*declaramos la matriz*/
     short tam1,tam2; /*variables tamaÃƒÂ±o y recorrido*/
 
     //creando primera matriz para la suma
@@ -44,9 +40,19 @@ int main(int argc, char **argv) {
     scanf("%hd", &tam2);
     crear(&m2, tam2);
     inicializar(&m2);   
-    imprimir(&m2); //no funciona.
+    imprimir(&m2); 
     printf("matriz 2 creada \n");
     
+    if(tam1 == tam2){
+        printf("tamaño correcto\n");
+        //crear(&result, tam1);
+        suma(&result,m1,m2);
+        //imprimir(&result);
+    }
+    else{ 
+        printf("las matrices tienen que ser del mismo tamaño");
+        exit(0);
+    }
     
 
     /* FILE *fp;
