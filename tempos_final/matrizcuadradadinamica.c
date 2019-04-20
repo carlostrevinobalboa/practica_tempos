@@ -75,15 +75,15 @@ void inicializar(matrizP *matrix) {
 void suma(matrizP* result, matrizP m1, matrizP m2) {
 
     long i, j;
-    TELEMENTO valorm1=0, valorm2=0, valorresult=0;
+    TELEMENTO valorresult=0;
     
      for (i = 0; i < m1->tam; i++) {
             for (j = 0; j < m2->tam; j++) {
-                valorm1 = recuperar(&m1, i + 1, j + 1);
+                //valorm1 = recuperar(&m1, i + 1, j + 1);
 
-                valorm2 = recuperar(&m2, i + 1, j + 1);
-                        
-                valorresult = valorm1 + valorm2;
+                //valorm2 = recuperar(&m2, i + 1, j + 1);
+                valorresult = recuperar(&m1, i + 1, j + 1) + recuperar(&m2, i + 1, j + 1);
+                //valorresult = valorm1 + valorm2;
                 
                 asignar(result, i+1, j+1, valorresult);
             }
