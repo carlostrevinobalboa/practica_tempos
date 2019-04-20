@@ -6,10 +6,10 @@
 
 void imprimir(matrizP *m1) {
     if (m1 != 0) {
-        short i, j,tam1 = tamano(m1);
+        short i, j, tam1 = tamano(m1);
         TELEMENTO r;
         for (i = 1; i < tam1 + 1; i++) {
-            for (j = 1; j < tam1 + 1; j++){
+            for (j = 1; j < tam1 + 1; j++) {
                 r = recuperar(m1, i, j);
                 printf("%f ", r);
             }
@@ -22,38 +22,24 @@ void imprimir(matrizP *m1) {
 }
 
 int main(int argc, char **argv) {
-
+    long i;
     clock_t inicio = -1, fin = -1;
-    matrizP m1,m2,result; /*declaramos la matriz*/
-    short tam1,tam2; /*variables tamaÃƒÂ±o y recorrido*/
+    matrizP m1, m2, result; /*declaramos la matriz*/
+    long tam1; /*variables tamaÃƒÂ±o y recorrido*/
 
-    //creando primera matriz para la suma
-    printf("Introduce el tamanho de la matriz m1: ");
-    scanf("%hd", &tam1);
-    crear(&m1, tam1);
-    inicializar(&m1);   
-    imprimir(&m1); //no funciona.
-    printf("matriz 1 creada\n");
+    printf("introduce el tamaño maximo de la suma: ");
+    scanf("%ld",&tam1);
     
-    //creando segunda matriz para la suma
-    printf("introduce el tamanho de la matriz m2: ");
-    scanf("%hd", &tam2);
-    crear(&m2, tam2);
-    inicializar(&m2);   
-    imprimir(&m2); 
-    printf("matriz 2 creada \n");
-    
-    if(tam1 == tam2){
-        printf("tamaño correcto\n");
-        crear(&result, tam1);
-        suma(&result,m1,m2);
-        imprimir(&result);
+    for (i = 1; i <= tam1; i++) {
+        crear(&m1, i);
+        inicializar(&m1);
+
+        crear(&m2, i);
+        inicializar(&m2);
+        
+        crear(&result, i);
+        suma(&result, m1, m2);
     }
-    else{ 
-        printf("las matrices tienen que ser del mismo tamaño");
-        exit(0);
-    }
-    
 
     /* FILE *fp;
      printf("Introduce el tamanho de la matriz m1: ");

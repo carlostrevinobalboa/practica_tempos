@@ -13,7 +13,7 @@ typedef STMATRIZ *matrizP; /*puntero a estructura*/
 
 /*FunciÃ³n crear: asigna memoria y devuelve la asignaciÃ³n a la matriz*/
 void crear(matrizP *m1, short tam1) {
-    short i;
+    long i;
 
     *m1 = (matrizP) malloc(sizeof (STMATRIZ));
     (*m1)->datos = (TELEMENTO*) malloc(tam1 * tam1 * sizeof (TELEMENTO));
@@ -42,7 +42,7 @@ void liberar(matrizP *m1) {
 }
 
 short tamano(matrizP *m1) {
-    short t = 0;
+    long t = 0;
     if (m1 != NULL) {
         t = (*m1)->tam;
         //printf("tamanio...- %d\n", t);
@@ -64,7 +64,7 @@ TELEMENTO recuperar(matrizP *m1, short fila, short columna) {
 }
 
 void inicializar(matrizP *matrix) {
-    int i, j;
+    long i, j;
     for (i = 0; i <= tamano(matrix); i++) {
         for (j = 0; j <= tamano(matrix); j++) {
             asignar(matrix, i, j, 10.0 * (TELEMENTO) rand() / RAND_MAX);
@@ -80,16 +80,12 @@ void suma(matrizP* result, matrizP m1, matrizP m2) {
      for (i = 0; i < m1->tam; i++) {
             for (j = 0; j < m2->tam; j++) {
                 valorm1 = recuperar(&m1, i + 1, j + 1);
-                printf("valor m1 %f\n",valorm1);
 
                 valorm2 = recuperar(&m2, i + 1, j + 1);
-                printf("valor m2 %f\n",valorm2);
                         
                 valorresult = valorm1 + valorm2;
-                printf("valor result %f\n",valorresult);
                 
                 asignar(result, i+1, j+1, valorresult);
             }
         }
-    printf("terminar asignacion\n");
 }
