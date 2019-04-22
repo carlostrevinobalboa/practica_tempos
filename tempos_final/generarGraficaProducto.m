@@ -2,7 +2,7 @@ clear all
 clf
 
 %CARGA DE DATOS
-t=load('out_mult.txt'); %Carga en memoria el fichero
+t=load('tiempoprod.txt'); %Carga en memoria el fichero
 
 
 x=t(:,1); %Eje x: n, primera columna

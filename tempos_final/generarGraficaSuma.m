@@ -2,7 +2,7 @@ clear all
 clf
 
 %CARGA DE DATOS
-t=load('out_suma.txt'); %Carga en memoria el fichero
+t=load('timemposuma.txt'); %Carga en memoria el fichero
 
 
 x=t(:,1); %Eje x: n, primera columna
